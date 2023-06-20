@@ -1,0 +1,24 @@
+<div class="col">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ i + 1 }} - {{ employee.name }} {{ employee.lastName }}
+                <a [routerLink]="['/actualiza',i]" [queryParams]="{accion:'1'}">
+                    Actualizar
+                </a>   
+                &nbsp;&nbsp;
+                <a [routerLink]="['/actualiza',i]" [queryParams]="{accion:'2'}">
+                    Eliminar
+                </a>  
+            </h5>
+            <p class="card-text">{{ employee.position }}</p>
+            <p class="card-text">U$S {{ employee.salary }}</p>
+            <p class="card-text">Caracteristicas: </p>
+            <li class="card-text list-unstyled" *ngFor="let property of arrayProperties">
+                {{ property }}
+            </li>
+            <br>
+            <app-property-employee (propertyEmployee)="addProperty($event)"></app-property-employee>
+        </div>
+    </div>
+</div>

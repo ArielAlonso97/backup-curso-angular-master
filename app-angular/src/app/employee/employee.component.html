@@ -1,0 +1,16 @@
+<p>Nombre: {{ name }} {{ lastName}}</p>
+<p>Caracteristica: {{ age >= 18 ? 'Mayor de edad' : 'Menor de edad' }}</p>
+<p>Empresa: {{ company }}</p>
+
+<label for="company">Cambio de empresa? Actualice el campo: </label>
+<input type="text" [(ngModel)]="company">
+<br>
+<!-- <button (click)="show = !show">Mostrar/Ocultar</button> -->
+<br>
+{{ textRegister }}
+<br>
+Registrado: <input type="radio" name="registered" value="1" id="registered" [checked]="registered" (click)="setUserRegistered($event)">
+<br>
+No registrado: <input type="radio" name="registered" value="0" (click)="setUserRegistered($event)">
+
+{{ getRegistered()}}

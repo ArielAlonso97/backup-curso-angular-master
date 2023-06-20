@@ -1,0 +1,25 @@
+<h1>{{ title }}</h1>
+
+<form action="">
+  <label for="name">Nombre: </label>
+  <input type="text" name="name" [(ngModel)]="name" /><br />
+  <label for="lastName">Apellido: </label>
+  <input type="text" name="lastName" [(ngModel)]="lastName" /><br />
+  <label for="position">Posicion: </label>
+  <input type="text" name="position" [(ngModel)]="position" /><br />
+  <input type="submit" value="Enviar" (click)="setRegister()" />
+</form>
+
+<p *ngIf="registered; else unregistered">
+  {{ message }}: {{ name }} {{ lastName }} <span [ngClass]="{directors: position=='Director'}">{{ position }}</span>
+</p>
+
+<ng-template #unregistered>
+  <p>Aún no se ha registrado.</p>
+</ng-template>
+<br>
+<ul>
+  <li *ngFor="let entry of entries; let i = index">
+    {{ entry.title }} - Posicion: {{ i+1 }}
+  </li>
+</ul>
